@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_purchase_order_form_inherit_sid_review_invoicing" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.sid.review.invoicing</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree" position="inside">
+                <button name="action_revisar_facturacion_regularizado"
+                        string="Revisar Facturación"
+                        type="object"
+                        class="oe_link"
+                        attrs="{'invisible': [('order_id.sid_regularizado', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
