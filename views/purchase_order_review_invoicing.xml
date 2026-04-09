@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_purchase_order_form_inherit_sid_review_invoicing" model="ir.ui.view">
-        <field name="name">purchase.order.form.inherit.sid.review.invoicing</field>
+    <record id="view_purchase_order_tree_sid_review_invoicing" model="ir.ui.view">
+        <field name="name">purchase.order.line.sid.review.invoicing</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+        <field name="priority">16</field>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button name="action_revisar_facturacion_regularizado"
+                            string="Revisar Facturación"
+                            type="object"
+                            class="oe_link"
+                            attrs="{'invisible': [('order_id.sid_regularizado', '=', False)]}"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_purchase_order_form_revisa_facturacion" model="ir.ui.view">
+        <field name="name">OV - purchase.order.form.revisa.factura (custom fields)</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="priority">1600</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_line']/tree" position="inside">
-                <button name="action_revisar_facturacion_regularizado"
-                        string="Revisar Facturación"
-                        type="object"
-                        class="oe_link"
-                        attrs="{'invisible': [('order_id.sid_regularizado', '=', False)]}"/>
+            <xpath expr="//field[@name='picking_type_id']" position="after">
+                <field name="sid_regularizado" string="Regularizado sin Factura"/>
             </xpath>
         </field>
     </record>
