@@ -2,7 +2,7 @@
 from collections import defaultdict
 from html import escape
 
-from odoo import _, models
+from odoo import _, models, fields
 from odoo.exceptions import UserError
 
 
