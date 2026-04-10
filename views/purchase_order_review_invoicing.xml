@@ -12,8 +12,11 @@
                             string="Revisar Facturación"
                             type="object"
                             class="oe_link"
-                            attrs="{'invisible': [('order_id.sid_regularizado', '=', False)]}"/>
+                            attrs="{'invisible': [('sid_regularizado', '=', False)]}"/>
                 </header>
+            </xpath>
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="sid_regularizado" invisible="1"/>
             </xpath>
         </field>
     </record>
@@ -30,3 +33,4 @@
         </field>
     </record>
 </odoo>
+

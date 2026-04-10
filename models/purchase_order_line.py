@@ -9,6 +9,12 @@ from odoo.exceptions import UserError
 class PurchaseOrderLine(models.Model):
     _inherit = "purchase.order.line"
 
+    sid_regularizado = fields.Boolean(
+        related='order_id.sid_regularizado',
+        store=True,
+        readonly=True,
+    )
+
     def action_revisar_facturacion_regularizado(self):
         """Regulariza cantidades facturadas para líneas recibidas sin factura del proveedor."""
         if not self:
