@@ -7,7 +7,8 @@
     "author": "oscarsidsa81",
     "license": "LGPL-3",
     "depends": [
-        "sid_purchase_core",
+        "base",
+        "purchase",
     ],
     "data": [
         "views/purchase_order_review_invoicing.xml",
