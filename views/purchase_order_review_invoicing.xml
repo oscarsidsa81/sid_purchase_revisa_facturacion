@@ -10,7 +10,7 @@
                 <header>
                     <button name="action_revisar_facturacion_regularizado"
                             string="Revisar Facturación"
-                            type="action"
+                            type="object"
                             class="oe_link"
                             attrs="{'invisible': [('order_id.sid_regularizado', '=', False)]}"/>
                 </header>
